@@ -82,7 +82,7 @@ const findDogById = async (req, res) => {
 }
 
 const createNewDog = async (req, res) => {
-    let { name, height, weight, life_span, createdInDb, temperament } = req.body;
+    let { name, height, weight, life_span, createdInDb, temperaments } = req.body;
 
     if (!name || !height || !weight) return res.status(404).send("Falta enviar datos obligatorios")
     try {
@@ -93,8 +93,9 @@ const createNewDog = async (req, res) => {
             life_span,
             createdInDb,
         })
-        await dogCreated.addTemperament(temperament)
-        res.send("Personajes creado con exito")
+        const temp = await Temperament.findAll({where: {name: temperaments}})
+        const newT = await dogCreated.addTemperament(temp)
+        res.send(newT)
     } catch (error) {
         return res.status(404).send("Error en alguno de los datos provistos")
     }
