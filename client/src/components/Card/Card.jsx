@@ -51,14 +51,17 @@ export default function Card () {
 
                             
                                 <div key={e.id}> 
-                                <Link to={`/dogs/detail/${e.id}`}>
+                                <Link to={`/dogs/detail/${e.id}`} >
                                     <span> 
                                         
                                     <img src={e.image} alt='perito' />
                                     
                                     <h1 key='pichi'>{e.name}</h1>
-                                 <p>Temperaments: {e.temperaments[0] ? e.temperaments[0].name : 'sin temperamentos'}</p> 
-                                    <p>soy el peso: {e.weight}</p> 
+                                    <p>Temperaments: {e.temperaments[0] ? e.temperaments[0].name : 'sin temperamentos'}</p> 
+                                    <p>Weight: {e.weight}</p> 
+                                    <p>Height: {e.height}</p> 
+
+
                                     
                                     
                                     </span>                         

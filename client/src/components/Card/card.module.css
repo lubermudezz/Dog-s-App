@@ -19,6 +19,7 @@
 
 .cardDiv div h1 {
     font-size: 25px;
+    color: black;
 }
 .cardDiv div:hover {
     background-color: rgba(127, 255, 212, 0.508)
@@ -38,7 +39,7 @@
     margin-bottom: 10px;
 }
 
-.cardDiv a {
-    font-style: none;
+.cardDiv p {
+    color: black;
 }
 
