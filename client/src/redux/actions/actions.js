@@ -122,7 +122,7 @@ export function filterDbBreeds () {
         if(dogs.length) {
                     return dispatch({type: FILTER_DB_BREEDS, payload: dogs})
         } else {
-            alert ('Aún no has añadido perritos') }
+            alert ('Aún no ha añadido perritos') }
     }
         
 }
