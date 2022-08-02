@@ -1,10 +1,9 @@
 .navbar {
-    margin-bottom: 50px;
+    margin-bottom: 50px;    
 }
 
 .navbar ul {
-
-    list-style-type: none;
+list-style-type: none;
   margin: 0;
   padding: 0;
   width: 60px;
@@ -18,6 +17,7 @@
 .navbar ul li {
     display: inline-block;
     text-transform:uppercase;
+
     
 }
 
@@ -30,9 +30,11 @@
     margin: 5px;
     margin-left: 5px;
     margin-right: 5px;
+    color: black;
+    font-weight: bold;
 
 }
 
 .navbar ul li a:hover{
- background-color: rgb(94, 124, 229);
+ background-color: rgb(123, 211, 236);
 }

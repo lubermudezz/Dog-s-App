@@ -29,7 +29,9 @@ const apiList = async () => {
             id: e.id,
             image: e.image.url,
             height: e.height.imperial,
-            weight: e.weight.imperial 
+            weight: e.weight.imperial,
+            life_span: e.life_span,
+            createdInDb: false
         }   
    
     })
@@ -56,7 +58,6 @@ const breedsList = async (req, res) => {
     if(name) {
         let searchByName = allDogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase()))
         if(!searchByName.length) {
-            
             return res.send(allDogs)
         } else {
             return res.json(searchByName)

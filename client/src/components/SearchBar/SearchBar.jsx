@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { getDogByName } from '../../redux/actions/actions';
+import S from "./search.module.css"
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const SearchBar = () => {
     }
 
     return (
-    <div>
+    <div className={S.divSearch}>
         
         <input
         name='search'

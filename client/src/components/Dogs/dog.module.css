@@ -1,3 +1,11 @@
 .dogDiv {
     background-color: #63d4d4;
 }
+
+.dogDiv h1{
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-top: black solid 2px;
+    width: 100%;
+}
+

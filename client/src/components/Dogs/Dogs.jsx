@@ -12,7 +12,7 @@ export default function Dogs () {
     return (
      
         <div key='perri' className={S.dogDiv}>
-            <h1>Find your dog</h1>
+            <h1>Let's find your dog!</h1>
             <SearchBar/>
             <Card/>
 

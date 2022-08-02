@@ -1,5 +1,6 @@
 import React from 'react'
 //import { orderByName } from '../../redux/actions/actions'
+import S from "./order.module.css"
 
 const Order = ({setOrder}) => {
 
@@ -19,13 +20,15 @@ function orderDogs(e) {
 
   return (
     <div>
-        <label>Order by:</label>
-        <select onChange={e => orderDogs(e)}>
-            <option value="AZ">Breed: AZ</option>
-            <option value="ZA"> Breed: ZA</option>
-            <option value="minW" >↓ Weight</option>
-            <option value="maxW" >↑ Weight</option>
+        <div className={S.span}> 
+        <label className={S.label}>Order by: </label>
+        <select onChange={e => orderDogs(e)} className={S.select}>
+            <option className={S.option} value="AZ">Breed: AZ</option>
+            <option className={S.option} value="ZA"> Breed: ZA</option>
+            <option className={S.option} value="minW" >↓ Weight</option>
+            <option className={S.option} value="maxW" >↑ Weight</option>
         </select>
+        </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_TEMPERAMENT, URL_DOG, GET_DOG_BY_NAME, URL_TEMPERAMENT, GET_DOG_BY_ID, ORDER_BY_NAME } from "./constantes";
+import { GET_ALL_DOGS, GET_TEMPERAMENT, URL_DOG, GET_DOG_BY_NAME, URL_TEMPERAMENT, GET_DOG_BY_ID, ORDER_BY_NAME, ORDER_BY_WEIGTH, FILTER_DB_BREEDS, FILTER_API_BREEDS, SEARCH_BY_TEMP } from "./constantes";
 import axios from 'axios'
 //import { useSelector } from "react-redux";
 
@@ -69,9 +69,35 @@ export function getDogsZA () {
         const list = await axios.get(URL_DOG)
         return dispatch({type: GET_ALL_DOGS, payload: list.data})
     }
-}
+    }
     */
 }
+
+export function getDogsMinWeight () {
+    return async function (dispatch) {
+        const list = await axios.get(URL_DOG)
+        list.data.sort((a, b) => {
+            if (parseFloat(a.weight.replace('NaN', 0).split(' - ').join('.')) > parseFloat(b.weight.replace('NaN', 0).split(' - ').join('.'))) return 1;
+            if (parseFloat(a.weight.replace('NaN', 0).split(' - ').join('.')) < parseFloat(b.weight.replace('NaN', 0).split(' - ').join('.'))) return -1;
+            else return 0;
+        })
+        console.log(list.data)
+        return dispatch({type: ORDER_BY_WEIGTH, payload: list.data})
+}}
+
+export function getDogsMaxWeight() {
+    return async function (dispatch) {
+        const list = await axios.get(URL_DOG)
+        list.data.sort((a, b) => {
+            if (parseFloat(a.weight.replace('NaN', 0).split(' - ').join('.')) > parseFloat(b.weight.replace('NaN', 0).split(' - ').join('.'))) return -1;
+                    if (parseFloat(a.weight.replace('NaN', 0).split(' - ').join('.')) < parseFloat(b.weight.replace('NaN', 0).split(' - ').join('.'))) return 1;
+                    else return 0;
+        })
+        console.log(list.data)
+        return dispatch({type: ORDER_BY_WEIGTH, payload: list.data})
+}   
+}
+
 
 //PARA FORMULARIO:
 export function getAllTemperaments () {
@@ -81,5 +107,33 @@ export function getAllTemperaments () {
     }
 }
 
+export function filterApiBreeds () {
+    return async function (dispatch) {
+        const list = await axios.get(URL_DOG)
+        const dogs =  list.data.filter((e) => e.createdInDb === false)
+        return dispatch({type: FILTER_API_BREEDS, payload: dogs})
+    }
+}
+
+export function filterDbBreeds () {
+    return async function (dispatch) {
+        const list = await axios.get(URL_DOG)
+        const dogs = await list.data.filter((e) => e.createdInDb === true)
+        if(dogs.length) {
+                    return dispatch({type: FILTER_DB_BREEDS, payload: dogs})
+        } else {
+            alert ('Aún no has añadido perritos') }
+    }
+        
+}
+
+export function searchByTemp(tempSearch) {
+    return async function (dispatch) {
+        const list = await axios.get(URL_DOG)
+        const dogs = list.data.filter((e) => e.temperaments[0].name?.includes(tempSearch) )
+        return dispatch({type: SEARCH_BY_TEMP, payload: dogs})
+
+    }
+}
 
 

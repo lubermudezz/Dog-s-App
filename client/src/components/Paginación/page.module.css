@@ -1,3 +1,13 @@
 .pageDiv button {
-    color: red;
+    background-color: rgb(62, 208, 208);
+    font-size: 15px;
+    margin: 5px;
+}
+
+.pageDiv input {
+    width: 2%;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    background-color: rgba(0, 255, 255, 0.279);
 }

@@ -4,18 +4,48 @@
 }
 
 .form h1 {
-    padding-top: 5px;
+    padding-top: 15px;
+    border-top: black 3px solid;
+    width: 100%;
 }
 
 .form label{
     margin: 5px;
 }
 
+.form select {
+    margin-top: 10px;
+    background-color: rgb(27, 211, 211);
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    border: solid 1px ;
+}
+
+.form button {
+    background-color: rgb(27, 211, 211);
+    width: 150%;
+    font-size: 15px ;
+    font-weight: bold;
+}
+
+.form button:hover {
+    background-color: rgb(32, 233, 233);
+    cursor: pointer;
+}
+
+.form select:hover {
+    background-color: rgb(32, 233, 233);
+    cursor: pointer;
+}
+
+
 
 .flex{
     display: flex;
     flex-direction: row;
     align-content: center;
+    align-items: center;
     justify-content: space-around;
     flex-wrap: nowrap;
     margin-top: 10%;
@@ -23,6 +53,7 @@
     width: 50%;
     margin-left: 25%;
     border-radius: 5%;
+    height: 50%;
 }
 
 

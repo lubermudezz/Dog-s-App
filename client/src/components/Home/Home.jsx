@@ -6,6 +6,7 @@ export default function Home () {
     
     return (
         <div className={S.homeDiv}>
+          
             <h1>WELCOME</h1>
             <Link to="/dogs"><button> FIND YOUR DOG</button></Link>
         </div>

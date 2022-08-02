@@ -9,11 +9,14 @@ export default function CreateNewDog () {
     const [temp, setTemp] = useState([])
     const [dog, setDog] = useState ({
         name: "",
-        height: "",
-        weight: "",
+        minHeight: "",
+        maxHeight: "",
+        minWeight: "",
+        maxWeight: "",
         life_span: "",
         temperaments: []
     })
+ 
 
     const dispatch = useDispatch();
     
@@ -45,11 +48,11 @@ export default function CreateNewDog () {
             let addTemp = { ...dog };
             addTemp["temperaments"] = [...addTemp["temperaments"], e.target.value];
             setDog(addTemp);
-          }
+          } 
     }
 
     function handleSubmit (e) {
-        e.preventDefault()
+  
         dispatch(postNewDog(dog))
         alert('perrito nuevo')
     }
@@ -57,7 +60,7 @@ export default function CreateNewDog () {
     return (
         
         <div className={S.form}>
-            <h1>NEW DOG</h1>
+            <h1>LET'S CREATE YOUR DOG!</h1>
             <div className={S.flex}>
                 <img src={IMG} alt="perrito" />
                 <form onSubmit={(e) => handleSubmit(e)} >
@@ -65,13 +68,14 @@ export default function CreateNewDog () {
                     <label>Dog Name:</label>
                     <input type="text" name="name" value={dog.name} onChange={(e) => handleChange(e)}></input>
                     <label>Height:</label>
-                    <input type="text" name="height" value={dog.height} onChange={(e) => handleChange(e)}></input>
+                    <input type="text" name="height" value={dog.height} onChange={(e) => handleChange(e)}></input> 
                     <label>Weight:</label>
                     <input type="text" name="weight" value = {dog.weight} onChange={(e) => handleChange(e)}/>
                     <label>Life Span:</label>
                     <input type="text" name="life_span" value={dog.life_span} onChange={(e) => handleChange(e)} />
-                    <label>Temperaments:</label>
-                            <select onChange={(e) => handleTemp(e)}>
+                            <label>Temperament</label>                            
+                            <select onChange={(e) => handleTemp(e)} >
+                                <option>Select Temperament</option>
                                     {temps ? temps.map(e => {return (
                                         <option key={e.id} value={e.name}>{e.name}</option>
                                     )}) : console.log ('sadx2')}
