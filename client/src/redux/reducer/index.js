@@ -1,9 +1,9 @@
-import { GET_ALL_DOGS, GET_DOG_BY_NAME, GET_TEMPERAMENT } from "../actions/constantes";
+import { GET_ALL_DOGS, GET_DOG_BY_ID, GET_DOG_BY_NAME, GET_TEMPERAMENT, ORDER_BY_NAME } from "../actions/constantes";
 
 const initialState = {
     allDogs: [],
-    dog: {},
-    temperaments: []
+    temperaments: [],
+    dog: {}
     // dogscopy:[]
 }
 
@@ -25,6 +25,19 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 allDogs: action.payload
             }
+
+        case GET_DOG_BY_ID:
+            return{
+                ...state,
+                dog: action.payload
+            }
+
+        case ORDER_BY_NAME: 
+        return {
+            ...state,
+            allDogs: action.payload,
+        }
+        
 
         default: return {...state}
     }

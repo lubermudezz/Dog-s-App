@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTemperaments, postNewDog } from "../redux/actions/actions";
-
+import { getAllTemperaments, postNewDog } from "../../redux/actions/actions";
+import S from "./createdog.module.css"
+import IMG from "../images/perripng.png"
 
 export default function CreateNewDog () {
     
@@ -55,27 +56,32 @@ export default function CreateNewDog () {
     
     return (
         
-        <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <br/>
-                <label>Dog Name:</label>
-                <input type="text" name="name" value={dog.name} onChange={(e) => handleChange(e)}></input>
-                <label>Height:</label>
-                <input type="text" name="height" value={dog.height} onChange={(e) => handleChange(e)}></input>
-                <label>Weight:</label>
-                <input type="text" name="weight" value = {dog.weight} onChange={(e) => handleChange(e)}/>
-                <label>Life Span:</label>
-                <input type="text" name="life_span" value={dog.life_span} onChange={(e) => handleChange(e)} />
-                <label>Temperaments:</label>
-                        <select onChange={(e) => handleTemp(e)}>
-                                {temps ? temps.map(e => {return (
-                                    <option key={e.id} value={e.name}>{e.name}</option>
-                                )}) : console.log ('sadx2')}
-                        </select>
-                <br/>
-                <button type="submit">SUBMIT</button>
+        <div className={S.form}>
+            <h1>NEW DOG</h1>
+            <div className={S.flex}>
+                <img src={IMG} alt="perrito" />
+                <form onSubmit={(e) => handleSubmit(e)} >
+                    <br/>
+                    <label>Dog Name:</label>
+                    <input type="text" name="name" value={dog.name} onChange={(e) => handleChange(e)}></input>
+                    <label>Height:</label>
+                    <input type="text" name="height" value={dog.height} onChange={(e) => handleChange(e)}></input>
+                    <label>Weight:</label>
+                    <input type="text" name="weight" value = {dog.weight} onChange={(e) => handleChange(e)}/>
+                    <label>Life Span:</label>
+                    <input type="text" name="life_span" value={dog.life_span} onChange={(e) => handleChange(e)} />
+                    <label>Temperaments:</label>
+                            <select onChange={(e) => handleTemp(e)}>
+                                    {temps ? temps.map(e => {return (
+                                        <option key={e.id} value={e.name}>{e.name}</option>
+                                    )}) : console.log ('sadx2')}
+                            </select>
+                    <br/>
+                    <button type="submit">CREATE</button>
 
-            </form>
+                </form>
+                
+            </div>
         </div>
     )
 }

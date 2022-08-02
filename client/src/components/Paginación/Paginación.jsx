@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-//import S from './page.module.css';
+import S from './page.module.css';
 
 
 const Paginación = ({page, setPage}) => {
@@ -38,17 +38,22 @@ const Paginación = ({page, setPage}) => {
 
   return (
     <div>
-        <button onClick={previousPage} disabled={page === 1 || page < 1} >ANTERIOR</button>
-        <input 
-        
-        name="page" 
-        autoComplete='off'
-        onChange={(e) => onChange(e)}
-        onKeyDown={(e) => onKeyDown(e)}
-        value={input} />
-        <button onClick={nextPage}>SIGUIENTE</button>
+       
+        <div className={S.pageDiv}>
+          <button onClick={previousPage} disabled={page === 1 || page < 1} >ANTERIOR</button>
+          <input 
+          
+          name="page" 
+          autoComplete='off'
+          onChange={(e) => onChange(e)}
+          onKeyDown={(e) => onKeyDown(e)}
+          value={input} />
+          <button onClick={nextPage}>SIGUIENTE</button>
 
+       </div>
     </div>
+    
+    
   )
 }
 

@@ -1,0 +1,38 @@
+.navbar {
+    margin-bottom: 50px;
+}
+
+.navbar ul {
+
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+  background-color: #63d4d4;    
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar ul li {
+    display: inline-block;
+    text-transform:uppercase;
+    
+}
+
+.navbar ul li a {
+    display: block;
+    padding: 10px;
+    background-color: #63d4d4;
+    text-align:  center;
+    text-decoration: none;
+    margin: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.navbar ul li a:hover{
+ background-color: rgb(94, 124, 229);
+}

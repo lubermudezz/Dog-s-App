@@ -2,18 +2,19 @@ import React from "react";
 //import {useDispatch, useSelector} from 'react-redux'
 //import { GET_ALL_DOGS } from "../redux/actions/constantes";
 //import { getAllDogs } from "../redux/actions/actions";
-import Card from "./Card";
-import SearchBar from "./SearchBar/SearchBar";
+import Card from "../Card/Card";
+import SearchBar from "../SearchBar/SearchBar";
 //import { Link } from "react-router-dom";
+import S from "./dog.module.css"
 
 export default function Dogs () {
 
     return (
      
-        <div key='perri'>
-            <h1>Soy DOGS</h1>
+        <div key='perri' className={S.dogDiv}>
+            <h1>Find your dog</h1>
             <SearchBar/>
-           <Card/>
+            <Card/>
 
         </div>
         

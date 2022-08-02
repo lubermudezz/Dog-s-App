@@ -15,6 +15,11 @@ const SearchBar = () => {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(getDogByName(input))
+        
+    }
+
+    function onKeyDown(e) {
+        if(e.keyCode === 13) handleSubmit(e)
     }
 
     return (
@@ -24,7 +29,8 @@ const SearchBar = () => {
         name='search'
         placeholder='Ingrese la raza que desea buscar'
         onChange={(e) => onChange(e)}
-        type="text"
+        onKeyDown={(e) => onKeyDown(e)}
+      
         />
         {/* <link><button onClick={(e) => handleSubmit(e)} >SEARCH</button></link> */}
         
@@ -35,7 +41,6 @@ const SearchBar = () => {
         ) : (
             <Link to="/dogs">
                 <button onClick={(e) => handleSubmit(e)}>SEARCH</button>
-            
             </Link>
         )}
 

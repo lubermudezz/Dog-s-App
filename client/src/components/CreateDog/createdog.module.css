@@ -1,0 +1,33 @@
+.form {
+    background-color: #63d4d4b9;
+    height: 1000px;
+}
+
+.form h1 {
+    padding-top: 5px;
+}
+
+.form label{
+    margin: 5px;
+}
+
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin-top: 10%;
+    background-color: rgba(255, 255, 255, 0.383);
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 5%;
+}
+
+
+
+.flex img {
+    width: 400px;
+    height: 400px;
+}

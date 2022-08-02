@@ -9,7 +9,7 @@ const setAllTemps = async () => {
     let arr = new Set()
     arrTemps.forEach(e => {if(e){e.split(",").map(e => arr.add(e.trim()))}});
     let result = Array.from(arr)
-    let lastArr = result.map( (temperament,i) => {return {name :temperament, id:i}})
+    let lastArr = result.map( (temperament,i) => {return {name: temperament, id:i}})
     Temperament.bulkCreate(lastArr)
     console.log("Temperamentos cargados correctamente")
 }
@@ -25,7 +25,7 @@ const apiList = async () => {
     let dogsApi = infoApi.data.map(e => {
         return {
             name: e.name,
-            temp: e.temperament,
+            temperaments: [{name: e.temperament}],
             id: e.id,
             image: e.image.url,
             height: e.height.imperial,
@@ -56,7 +56,8 @@ const breedsList = async (req, res) => {
     if(name) {
         let searchByName = allDogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase()))
         if(!searchByName.length) {
-            return res.json({err: `No existe ninguna raza que coincida con el parámetro ingresado: ${name}`})
+            
+            return res.send(allDogs)
         } else {
             return res.json(searchByName)
         }
@@ -73,12 +74,10 @@ const findDogById = async (req, res) => {
     let allDogs = [...dbDogs, ...apiDogs] 
     if (dogId) {
         let searchByDogId = allDogs.filter(e => e.id == dogId)
-        if(!searchByDogId.length) {
-            return res.json({err: `No existe ninguna raza con ID que coincida con el parámetro ingresado: ${dogId}`})
-        } else {
-            return res.json(searchByDogId)
-        }
-    } 
+        return res.json(searchByDogId)
+    }
+    return res.json({err: `No existe ninguna raza con ID que coincida con el parámetro ingresado: ${dogId}`})
+     
 }
 
 const createNewDog = async (req, res) => {
@@ -94,7 +93,7 @@ const createNewDog = async (req, res) => {
             createdInDb,
         })
         const temp = await Temperament.findAll({where: {name: temperaments}})
-        const newT = await dogCreated.addTemperament(temp)
+        const newT = await dogCreated.addTemperaments(temp)
         res.send(newT)
     } catch (error) {
         return res.status(404).send("Error en alguno de los datos provistos")

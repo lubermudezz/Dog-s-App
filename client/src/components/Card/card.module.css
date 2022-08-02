@@ -1,0 +1,44 @@
+
+
+.cardDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: #63d4d4;
+
+}
+
+.cardDiv div{
+    border: 1px solid rgb(45, 124, 127);
+    margin: 5px;
+    background-color: none
+    
+}
+
+.cardDiv div h1 {
+    font-size: 25px;
+}
+.cardDiv div:hover {
+    background-color: rgba(127, 255, 212, 0.508)
+}
+
+.cardDiv img{
+    width: auto;
+    height: 300px;
+}
+
+.cardDiv span {
+    text-align: center;
+
+}
+
+.cardDiv button {
+    margin-bottom: 10px;
+}
+
+.cardDiv a {
+    font-style: none;
+}
+
