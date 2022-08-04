@@ -62,3 +62,12 @@
     width: 400px;
     height: 400px;
 }
+
+.doggy {
+    display:none
+}
+
+.doggyDos {
+    color: red;
+    display: block;
+}

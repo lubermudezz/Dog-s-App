@@ -20,6 +20,8 @@ const getAllTemps = async (req, res) => {
     return res.send(allTemps)
 }
 
+// CONFIGURACIÓN DEL GET A /DOGS:
+
 const apiList = async () => {
     let infoApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)
     let dogsApi = infoApi.data.map(e => {

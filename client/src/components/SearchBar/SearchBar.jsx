@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getDogByName } from '../../redux/actions/actions';
 import S from "./search.module.css"
 
-const SearchBar = () => {
+const SearchBar = ({setPage}) => {
     const dispatch = useDispatch();
     const [input, setInput] = useState('');
     
@@ -15,12 +15,16 @@ const SearchBar = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
+        setInput('')
+        setPage(1)
         dispatch(getDogByName(input))
+        
         
     }
 
     function onKeyDown(e) {
         if(e.keyCode === 13) handleSubmit(e)
+        setPage(1)
     }
 
     return (

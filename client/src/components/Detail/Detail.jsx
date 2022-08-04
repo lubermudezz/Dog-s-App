@@ -38,7 +38,11 @@ const Detail = () => {
                 
 
             
-        </div> : console.log('No se encontró el detalle que buscaba')}
+        </div> : 
+        <div> 
+            <h1>Espere, estamos buscando su perrito...</h1>
+
+        </div>}
     </div>
   )
 }

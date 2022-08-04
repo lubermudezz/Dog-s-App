@@ -13,6 +13,7 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             allDogs: action.payload,
+            dog: {}
         }
         case GET_TEMPERAMENT:
             return{

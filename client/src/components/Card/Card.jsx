@@ -8,6 +8,7 @@ import Paginación from "../Paginación/Paginación";
 import Order from "../Order/Order"
 import S from "./card.module.css"
 import Filter from "../Filter/Filter";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Card () {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ export default function Card () {
    // const temperaments = useSelector(state=> state.temperaments)
     const [page, setPage] = useState(1)
     const perPage = 8;
+    const maxPage = Math.ceil(allDogs.length/8)
     const [filter, setFilter] = useState('All')
 
     const [order, setOrder] = useState ('AZ')
@@ -39,12 +41,13 @@ export default function Card () {
     return (
      
         <div key='perri'>
+            <SearchBar setPage={setPage}/>
             <Order setOrder={setOrder}/>
             <Filter setFilter={setFilter} setTempSearch={setTempSearch} setPage={setPage}></Filter>
-            <Paginación page={page} setPage={setPage}/>
+            <Paginación page={page} setPage={setPage} maxPage={maxPage}/>
             <div  className={S.cardDiv}>
                 { allDogs ?
-                        allDogs
+                       allDogs
                         .slice((page-1) * perPage, (page-1) * perPage + perPage)
                         .map (e => {
                             return (
@@ -52,7 +55,7 @@ export default function Card () {
                             
                                 <div key={e.id}> 
                                 <Link to={`/dogs/detail/${e.id}`} >
-                                    <span> 
+                                 <span> 
                                         
                                     <img src={e.image} alt='perito' />
                                     
@@ -64,21 +67,20 @@ export default function Card () {
 
                                     
                                     
-                                    </span>                         
+                                    </span>                    
                                 </Link>
                                 </div>
                             
                                 //<img src={e.image} alt="fotito" />
                             )
-                        }) : console.log('no hay perritos')
- 
-                } 
+                        }) : <div>No encontramos perritos disponibles</div>
+                }
             </div>
             
             <div>
             <Filter setFilter={setFilter} setTempSearch={setTempSearch} setPage={setPage} ></Filter>
                 <Order setOrder={setOrder}/>
-                <Paginación page={page} setPage={setPage} />
+                <Paginación page={page} setPage={setPage} maxPage={maxPage} />
 
             </div>
 

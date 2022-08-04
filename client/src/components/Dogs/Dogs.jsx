@@ -13,7 +13,6 @@ export default function Dogs () {
      
         <div key='perri' className={S.dogDiv}>
             <h1>Let's find your dog!</h1>
-            <SearchBar/>
             <Card/>
 
         </div>

@@ -9,14 +9,17 @@ export default function CreateNewDog () {
     const [temp, setTemp] = useState([])
     const [dog, setDog] = useState ({
         name: "",
-        minHeight: "",
-        maxHeight: "",
-        minWeight: "",
-        maxWeight: "",
+        height: "",
+        weight: "",
         life_span: "",
         temperaments: []
     })
  
+    const [send, setSend] = useState(false)
+    const [validName, setValidName] = useState(false)
+    const [validWeight, setValidWeight] = useState (false)
+    const [validHeight, setValidHeight] = useState(false)
+
 
     const dispatch = useDispatch();
     
@@ -30,15 +33,62 @@ export default function CreateNewDog () {
 
     function handleChange (e) {
         e.preventDefault()
+         if (e.target.name == 'name') {
+             let nombre = e.target.value            
+             console.log(nombre)
+
+             if(/^([0-9])*$/.test(nombre) || nombre == '') {
+                setValidName(false)
+                 console.log('el usuario ingreso caracteres inválidos')
+             } else {
+                let perri = {...dog}
+                perri[e.target.name] = e.target.value
+                setValidName(true)
+                setDog(perri)
+             }
+        }
+
+        if (e.target.name == 'weight') {
+            let valor = e.target.value 
+            if(/^[0-9]*$/.test(valor) == false || valor == '') {
+                setValidWeight(false)
+                console.log('el usuario ingresó caracteres inválidos')
+            } else {
+                let perri = {...dog}
+                 perri[e.target.name] = e.target.value
+                 setValidWeight(true)
+                 setDog(perri)
+            }
+        }
+
+        if (e.target.name == 'height') {
+            let valor = e.target.value 
+            if(/^[0-9]*$/.test(valor) == false || valor == '') {
+                setValidHeight(false)
+                console.log('el usuario ingresó caracteres inválidos')
+            } else {
+                let perri = {...dog}
+                 perri[e.target.name] = e.target.value
+                 setValidHeight(true)
+                 setDog(perri)
+            }
+        }
+
+
         if(e.target.name) {
             let perri = {...dog}
             perri[e.target.name] = e.target.value
             setDog(perri)
-        } else {return console.log('sad')}
+        } else {return console.log('error en el post')}
         
         let perri = {...dog}
         perri[e.target.name] = e.target.value;
         setDog(perri);
+
+        if(validName && validHeight && validWeight) {setSend(true)} else {
+            setSend(false)
+        }
+    
     }
     function handleTemp (e) {
         e.preventDefault()
@@ -52,9 +102,8 @@ export default function CreateNewDog () {
     }
 
     function handleSubmit (e) {
-  
         dispatch(postNewDog(dog))
-        alert('perrito nuevo')
+        alert('Perrito creado correctamente')
     }
     
     return (
@@ -63,14 +112,15 @@ export default function CreateNewDog () {
             <h1>LET'S CREATE YOUR DOG!</h1>
             <div className={S.flex}>
                 <img src={IMG} alt="perrito" />
-                <form onSubmit={(e) => handleSubmit(e)} >
+                <form onSubmit={(e) => handleSubmit(e)} id="createForm" >
                     <br/>
-                    <label>Dog Name:</label>
-                    <input type="text" name="name" value={dog.name} onChange={(e) => handleChange(e)}></input>
-                    <label>Height:</label>
-                    <input type="text" name="height" value={dog.height} onChange={(e) => handleChange(e)}></input> 
-                    <label>Weight:</label>
-                    <input type="text" name="weight" value = {dog.weight} onChange={(e) => handleChange(e)}/>
+                    <p>Los campos marcados con * son obligatorios</p>
+                    <label>Dog Name: *</label>
+                    <input type="text" placeholder="ingrese sólo letras" name="name" value={dog.name} onChange={(e) => handleChange(e)}></input>
+                    <label>Height: *</label>
+                    <input type="text" name="height" placeholder="ingrese sólo números" value={dog.height} onChange={(e) => handleChange(e)}></input> 
+                    <label>Weight: *</label>
+                    <input type="text" name="weight" placeholder="ingrese sólo números" value = {dog.weight} onChange={(e) => handleChange(e)}/>
                     <label>Life Span:</label>
                     <input type="text" name="life_span" value={dog.life_span} onChange={(e) => handleChange(e)} />
                             <label>Temperament</label>                            
@@ -81,7 +131,7 @@ export default function CreateNewDog () {
                                     )}) : console.log ('sadx2')}
                             </select>
                     <br/>
-                    <button type="submit">CREATE</button>
+                    <button type="submit" disabled={send === false} >CREATE</button>
 
                 </form>
                 
