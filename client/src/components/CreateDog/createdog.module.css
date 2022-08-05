@@ -1,6 +1,6 @@
 .form {
-    background-color: #63d4d4b9;
-    height: 1000px;
+    background-color: #3e0b064e;
+    height: 1200px;
 }
 
 .form h1 {
@@ -15,7 +15,7 @@
 
 .form select {
     margin-top: 10px;
-    background-color: rgb(27, 211, 211);
+    background-color: #3e0b068a;
     text-align: center;
     font-weight: bold;
     font-size: 15px;
@@ -23,19 +23,19 @@
 }
 
 .form button {
-    background-color: rgb(27, 211, 211);
-    width: 150%;
+    background-color: #3e0b068a;
+    width: 105%;
     font-size: 15px ;
     font-weight: bold;
 }
 
 .form button:hover {
-    background-color: rgb(32, 233, 233);
+    background-color: #3e0b0664;
     cursor: pointer;
 }
 
 .form select:hover {
-    background-color: rgb(32, 233, 233);
+    background-color: #3e0b064f;
     cursor: pointer;
 }
 
@@ -46,14 +46,14 @@
     flex-direction: row;
     align-content: center;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: nowrap;
-    margin-top: 10%;
+    margin-top: 0;
     background-color: rgba(255, 255, 255, 0.383);
-    width: 50%;
-    margin-left: 25%;
+    width: 70%;
+    margin-left: 15%;
     border-radius: 5%;
-    height: 50%;
+    height: 60%;
 }
 
 
@@ -63,11 +63,28 @@
     height: 400px;
 }
 
-.doggy {
-    display:none
+
+.minMax {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
 }
 
-.doggyDos {
-    color: red;
-    display: block;
+.minMax input {
+    margin-right: 10px;
+}
+
+.form input {
+    margin: 10px;
+}
+
+.dogName {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.dogNameInput {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
 }

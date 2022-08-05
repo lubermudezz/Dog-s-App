@@ -1,8 +1,8 @@
 .filter {
     color: white;
-    background-color: rgb(62, 208, 208);
+    background-color: #3e0b068a;
     margin-left: 2.5%;
-    border: solid 2px rgb(45, 124, 127);
+    border: solid 2px #3e0b068a;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     font-size: 20px;

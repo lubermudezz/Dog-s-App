@@ -1,6 +1,6 @@
 .homeDiv {
-    background-image: url(../images/perrolanding.jpg);
-    background-color: aqua;
+    /* background-image: url(../images/perrolanding.jpg); */
+    /* background-color: aqua; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -9,16 +9,18 @@
 
 .homeDiv button {
     padding: 20px;
-    font-size: 15px;
+    font-size: 30px;
     font-weight: bold;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.478);
+    background-color: #824842a0;
     margin-top: 18%;
+    margin-left: 60%;
+
 }
 
 .homeDiv button:hover {
-    background-color: white;
     cursor: pointer;
+    color: rgba(255, 255, 255, 0.712);
+    width: 15%;
 }
 
 .homeDiv h1 {
@@ -26,12 +28,23 @@
   padding-bottom: 50px;
   letter-spacing: 10px;
   font-size: 60px;
-  font-family: 'Courier New', Courier, monospace;
-  background-color: rgba(255, 255, 255, 0.478);
-    text-align: center;
+  background-color: #8248422d;
+  text-align: center;
 }
 
 .homeDiv h1:hover {
-    background-color: rgba(255, 255, 255, 0.678);
+    background-color: rgba(255, 255, 255, 0.454);
     letter-spacing: 15px;
+}
+
+.backV {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
 }

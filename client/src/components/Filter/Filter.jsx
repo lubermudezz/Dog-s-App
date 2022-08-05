@@ -33,7 +33,8 @@ const Filter = ({setFilter, setTempSearch, setPage}) => {
             <option value="Your" >Your Breeds</option>
         </select>
         <select onChange={(e) => filterTemp(e)} className={S.filter}>
-          <option>FILTER DOGS BY TEMPERAMENT</option>
+          <option value="All">FILTER DOGS BY TEMPERAMENT</option>
+          <option value="All">All Temperaments</option>
           {temps ? temps.map((e) => {
             return <option key={e.id} value={e.name}>{e.name}</option>
           }) : console.log('no hay temperamentos cargados')}

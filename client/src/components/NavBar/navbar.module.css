@@ -1,13 +1,12 @@
 .navbar {
-    margin-bottom: 50px;    
+    margin-bottom: 80px; 
 }
 
 .navbar ul {
 list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 60px;
-  background-color: #63d4d4;    
+  background-color: #713933c7;    
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -23,18 +22,19 @@ list-style-type: none;
 
 .navbar ul li a {
     display: block;
-    padding: 10px;
-    background-color: #63d4d4;
+    padding: 20px;
     text-align:  center;
     text-decoration: none;
-    margin: 5px;
+    margin: 10px;
     margin-left: 5px;
     margin-right: 5px;
     color: black;
     font-weight: bold;
+    font-size: 20px;
 
 }
 
 .navbar ul li a:hover{
- background-color: rgb(123, 211, 236);
+ background-color: #64342e80;
+ color: white;
 }

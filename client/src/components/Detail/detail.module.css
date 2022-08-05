@@ -16,7 +16,7 @@
 }
 
 .detailDiv {
-    background-color: rgb(108, 181, 201);
+    background-color: #3e0b064e;
     width: 50%;
     float: right;
     margin-top: 50px;
@@ -25,11 +25,11 @@
 }
 
 .detailDiv:hover {
-    background-color: rgb(132, 212, 234);
+    background-color: #3e0b062f;
 
 }
 
 .div {
-    background-color: #63d4d4c9;
+    background-color: #3e0b064e;
     height: 1000px;
 }

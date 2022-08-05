@@ -12,14 +12,19 @@ export default function CreateNewDog () {
         height: "",
         weight: "",
         life_span: "",
+        image: "",
         temperaments: []
     })
  
+
     const [send, setSend] = useState(false)
     const [validName, setValidName] = useState(false)
     const [validWeight, setValidWeight] = useState (false)
     const [validHeight, setValidHeight] = useState(false)
-
+    const [minW, setMinW] = useState('')
+    const [maxW, setMaxW] = useState('')
+    const [minH, setMinH] = useState('')
+    const [maxH, setMaxH] = useState('')
 
     const dispatch = useDispatch();
     
@@ -33,7 +38,8 @@ export default function CreateNewDog () {
 
     function handleChange (e) {
         e.preventDefault()
-         if (e.target.name == 'name') {
+         
+        if (e.target.name == 'name') {
              let nombre = e.target.value            
              console.log(nombre)
 
@@ -48,44 +54,64 @@ export default function CreateNewDog () {
              }
         }
 
-        if (e.target.name == 'weight') {
-            let valor = e.target.value 
-            if(/^[0-9]*$/.test(valor) == false || valor == '') {
+        if (e.target.name == 'minW' || e.target.name == 'maxW') {
+            if(/^[0-9]*$/.test(e.target.value) == false || e.target.value == '' ) {
                 setValidWeight(false)
                 console.log('el usuario ingresó caracteres inválidos')
-            } else {
-                let perri = {...dog}
-                 perri[e.target.name] = e.target.value
-                 setValidWeight(true)
-                 setDog(perri)
+            } else if(e.target.name == 'maxW') {
+                setMaxW(e.target.value)
+                // let perri = {...dog}
+                //  perri[e.target.name] = e.target.value
+                //  setValidWeight(true)
+                //  setDog(perri)
+            } else if (e.target.name == 'minW'){
+                setMinW(e.target.value)
             }
         }
 
-        if (e.target.name == 'height') {
+        if(minW && maxW ) {
+            let perri = {...dog}
+            perri.weight = `${minW} - ${maxW}`
+            setDog(perri);    
+            setValidWeight(true)            
+            
+        }
+
+        if (e.target.name == 'minH' || e.target.name == 'maxH') {
             let valor = e.target.value 
             if(/^[0-9]*$/.test(valor) == false || valor == '') {
                 setValidHeight(false)
                 console.log('el usuario ingresó caracteres inválidos')
-            } else {
-                let perri = {...dog}
-                 perri[e.target.name] = e.target.value
-                 setValidHeight(true)
-                 setDog(perri)
+            } else if(e.target.name == 'minH') {
+                setMinH (e.target.value)
+            } else if (e.target.name == 'maxH') {
+                setMaxH(e.target.value)
             }
         }
 
+        if(minH  && maxH ) {
+            let perri = {...dog}
+            perri.height = `${minH} - ${maxH}`
+            setDog(perri);    
+            setValidHeight(true)            
+            
+        }
 
-        if(e.target.name) {
+
+        if(e.target.name != 'minW' && e.target.name != 'maxW') {
             let perri = {...dog}
             perri[e.target.name] = e.target.value
             setDog(perri)
         } else {return console.log('error en el post')}
         
         let perri = {...dog}
+        perri.weight = `${minW} - ${maxW}`
         perri[e.target.name] = e.target.value;
         setDog(perri);
 
-        if(validName && validHeight && validWeight) {setSend(true)} else {
+        if(validName && validHeight && validWeight) {
+            setSend(true)
+        } else {
             setSend(false)
         }
     
@@ -113,24 +139,36 @@ export default function CreateNewDog () {
             <div className={S.flex}>
                 <img src={IMG} alt="perrito" />
                 <form onSubmit={(e) => handleSubmit(e)} id="createForm" >
-                    <br/>
-                    <p>Los campos marcados con * son obligatorios</p>
-                    <label>Dog Name: *</label>
-                    <input type="text" placeholder="ingrese sólo letras" name="name" value={dog.name} onChange={(e) => handleChange(e)}></input>
-                    <label>Height: *</label>
-                    <input type="text" name="height" placeholder="ingrese sólo números" value={dog.height} onChange={(e) => handleChange(e)}></input> 
-                    <label>Weight: *</label>
-                    <input type="text" name="weight" placeholder="ingrese sólo números" value = {dog.weight} onChange={(e) => handleChange(e)}/>
+                    <label className={S.dogName}>Dog Name: *</label>
+                    <input className={S.dogNameInput} type="text" placeholder="ingrese sólo letras" name="name" value={dog.name} onChange={(e) => handleChange(e)}></input>
+
+                        <div className={S.minMax}>
+                            <label>Min Height: *</label>
+                            <input type="text" name="minH" placeholder="ingrese un valor mayor a 0" value = {minH} onChange={(e) => handleChange(e)}></input>
+                            <label>Max Height: *</label>
+                            <input type="text" name="maxH" placeholder="ingrese un valor mayor a 0" value ={maxH} onChange={(e) => handleChange(e)}></input>
+                        </div> 
+                      
+                        <div className={S.minMax}>
+                            <label>Min Weight: *</label>
+                            <input type="text" name="minW" placeholder="ingrese un valor mayor a 0" value = {minW} onChange={(e) => handleChange(e)}></input>
+                            <label>Max Weight: *</label>
+                            <input type="text" name="maxW" placeholder="ingrese un valor mayor a 0" value ={maxW} onChange={(e) => handleChange(e)}></input>
+                        </div> 
+                       
                     <label>Life Span:</label>
                     <input type="text" name="life_span" value={dog.life_span} onChange={(e) => handleChange(e)} />
                             <label>Temperament</label>                            
                             <select onChange={(e) => handleTemp(e)} >
                                 <option>Select Temperament</option>
                                     {temps ? temps.map(e => {return (
-                                        <option key={e.id} value={e.name}>{e.name}</option>
+                                        <option key={e.id} value={e.name} >{e.name}</option>
+                                        // <option key={e.id} value={e.name}>{e.name}</option>
                                     )}) : console.log ('sadx2')}
                             </select>
-                    <br/>
+                    <br></br>
+                    <p>Los campos marcados con * son obligatorios</p>
+
                     <button type="submit" disabled={send === false} >CREATE</button>
 
                 </form>

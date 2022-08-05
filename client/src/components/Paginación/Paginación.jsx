@@ -28,7 +28,7 @@ const Paginación = ({page, setPage, maxPage}) => {
     } else {
    
       setPage(valueN)
-      setInput(valueN)
+      setInput(page)
       //return console.log(`Página actual: ${valueN}`)
     }
     
@@ -36,9 +36,8 @@ const Paginación = ({page, setPage, maxPage}) => {
   }
 
   const onChange = (e) => {
-      setInput(e.target.value)
-
-    
+    setPage(e.target.value)
+    setInput(page) 
   }
 
   return (
@@ -52,7 +51,7 @@ const Paginación = ({page, setPage, maxPage}) => {
           autoComplete='off'
           onChange={(e) => onChange(e)}
           onKeyDown={(e) => onKeyDown(e)}
-          value={input} />
+          value={page} />
           <button onClick={nextPage} disabled={page === maxPage} >SIGUIENTE</button>
 
        </div>

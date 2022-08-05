@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import S from './home.module.css'
+import video from '../images/videoback.mp4'
 
 export default function Home () {
     
     return (
         <div className={S.homeDiv}>
-          
-            <h1>WELCOME</h1>
-            <Link to="/dogs"><button> FIND YOUR DOG</button></Link>
+            <video autoPlay muted loop className={S.backV}>
+                <source src={video} type="video/mp4"  />
+            </video>
+
+            <h1>BIENVENIDOS</h1>
+            <Link to="/dogs"><button>PERRITOS DISPONIBLES</button></Link>
         </div>
     )
 }

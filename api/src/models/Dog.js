@@ -19,7 +19,8 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
+      defaultValue: "https://www.xn--perrosrazapequea-lub.com/wp-content/uploads/2018/10/perro-regalo.jpg"
     },
     weight:{
       type: DataTypes.STRING,

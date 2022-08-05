@@ -17,7 +17,7 @@ export default function Card () {
     const [page, setPage] = useState(1)
     const perPage = 8;
     const maxPage = Math.ceil(allDogs.length/8)
-    const [filter, setFilter] = useState('All')
+    const [filter, setFilter] = useState('')
 
     const [order, setOrder] = useState ('AZ')
     const [tempSearch, setTempSearch] = useState('All')
@@ -25,14 +25,31 @@ export default function Card () {
     
 
     useEffect(() => {
-        if(order === 'AZ') dispatch(getAllDogs())
-        if(filter === 'All') dispatch(getAllDogs())
-        if(filter === 'Our') dispatch(filterApiBreeds())
-        if(order === 'ZA') dispatch(getDogsZA())
-        if(order === 'minW') dispatch(getDogsMinWeight())
-        if(order === 'maxW') dispatch (getDogsMaxWeight())
-        if(filter === 'Your') dispatch(filterDbBreeds())
-        if(tempSearch !== 'All') dispatch(searchByTemp(tempSearch))
+        if(order === 'AZ') {
+            setPage(1)
+            dispatch(getAllDogs())}
+        if(filter === 'All') {
+            setPage(1)
+            dispatch(getAllDogs())            
+        }
+        if(filter === 'Our') {
+            setPage(1)
+            dispatch(filterApiBreeds())}
+        if(order === 'ZA') {
+            setPage(1)
+            dispatch(getDogsZA())}
+        if(order === 'minW') {
+            setPage(1)
+            dispatch(getDogsMinWeight())}
+        if(order === 'maxW') {
+            setPage(1)
+            dispatch (getDogsMaxWeight())}
+        if(filter === 'Your') {
+            setPage(1)
+            dispatch(filterDbBreeds())}
+        if(tempSearch !== 'All') {
+            setPage(1)
+            dispatch(searchByTemp(tempSearch))}
         //dispatch(getAllTemperaments())
     }, [dispatch, order, filter, tempSearch])
 
@@ -78,8 +95,7 @@ export default function Card () {
             </div>
             
             <div>
-            <Filter setFilter={setFilter} setTempSearch={setTempSearch} setPage={setPage} ></Filter>
-                <Order setOrder={setOrder}/>
+
                 <Paginación page={page} setPage={setPage} maxPage={maxPage} />
 
             </div>

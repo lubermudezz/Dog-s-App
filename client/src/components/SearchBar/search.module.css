@@ -13,13 +13,15 @@
     height: 40px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
-    border:rgb(45, 124, 127) 1px solid;
-    background-color: rgb(62, 208, 208);
+    border:#3e0b068a 1px solid;
+    background-color: #3e0b068a;
+    color: white;
+    font-size: 25px;
 
 }
 
 .divSearch button:hover {
-    background-color: rgb(67, 230, 230);
+    background-color: #3e0b06ac;
     cursor: pointer;
 
 }

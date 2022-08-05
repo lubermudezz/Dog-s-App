@@ -1,5 +1,4 @@
 .span {
-    background-color: rgba(240, 248, 255, 0.308);
     padding: 10px;
 
 }
@@ -14,8 +13,9 @@
 .select {
     font-size: 18px;
     font-family: 'Courier New', Courier, monospace;
-    border:rgb(45, 124, 127) 1px solid;
+    border:#3e0b068a 1px solid;
     margin: 5px;
-    background-color: rgb(62, 208, 208);
+    background-color: #3e0b068a;
     font-weight: bold;
+    color: white;
 }
