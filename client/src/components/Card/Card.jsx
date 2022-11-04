@@ -21,8 +21,8 @@ export default function Card () {
 
     const [order, setOrder] = useState ('AZ')
     const [tempSearch, setTempSearch] = useState('All')
-
-    
+  
+  
 
     useEffect(() => {
         if(order === 'AZ') {
@@ -67,6 +67,7 @@ export default function Card () {
                        allDogs
                         .slice((page-1) * perPage, (page-1) * perPage + perPage)
                         .map (e => {
+                
                             return (
 
                             
@@ -77,7 +78,11 @@ export default function Card () {
                                     <img src={e.image} alt='perito' />
                                     
                                     <h1 key='pichi'>{e.name}</h1>
-                                    <p>Temperaments: {e.temperaments[0] ? e.temperaments[0].name : 'sin temperamentos'}</p> 
+
+                                    
+                                   <p>Temperaments: {e.temperaments[0] ? e.temperaments[0].name : 'sin temperamentos'}
+                                    </p>  
+
                                     <p>Weight: {e.weight}</p> 
                                     <p>Height: {e.height}</p> 
 

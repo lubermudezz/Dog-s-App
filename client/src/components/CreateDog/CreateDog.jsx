@@ -30,7 +30,6 @@ export default function CreateNewDog () {
     
     useEffect(() => {
         dispatch(getAllTemperaments())
-        //dispatch(getAllTemperaments())
     }, [dispatch])
 
     const temps = useSelector(state => state.temperaments)
@@ -41,7 +40,6 @@ export default function CreateNewDog () {
          
         if (e.target.name == 'name') {
              let nombre = e.target.value            
-             console.log(nombre)
 
              if(/^([0-9])*$/.test(nombre) || nombre == '') {
                 setValidName(false)
@@ -60,10 +58,7 @@ export default function CreateNewDog () {
                 console.log('el usuario ingresó caracteres inválidos')
             } else if(e.target.name == 'maxW') {
                 setMaxW(e.target.value)
-                // let perri = {...dog}
-                //  perri[e.target.name] = e.target.value
-                //  setValidWeight(true)
-                //  setDog(perri)
+  
             } else if (e.target.name == 'minW'){
                 setMinW(e.target.value)
             }
@@ -118,12 +113,16 @@ export default function CreateNewDog () {
     }
     function handleTemp (e) {
         e.preventDefault()
+    let temper = document.getElementById('temps')
+
         if (!temp?.includes(e.target.value)) {
             setTemp([...temp, e.target.value]);
       
             let addTemp = { ...dog };
             addTemp["temperaments"] = [...addTemp["temperaments"], e.target.value];
             setDog(addTemp);
+
+            temper.innerHTML = `${addTemp.temperaments}`
           } 
     }
 
@@ -166,10 +165,11 @@ export default function CreateNewDog () {
                                         // <option key={e.id} value={e.name}>{e.name}</option>
                                     )}) : console.log ('sadx2')}
                             </select>
+                            <span id='temps' className={S.spanTemp}></span>
                     <br></br>
                     <p>Los campos marcados con * son obligatorios</p>
 
-                    <button type="submit" disabled={send === false} >CREATE</button>
+                    <button type="submit" disabled={send === false} className={S.buttonCreate} >CREATE</button>
 
                 </form>
                 
@@ -178,13 +178,6 @@ export default function CreateNewDog () {
     )
 }
 
-/*
-    FORMULARIO CONTROLADO: validaciones con JS
-        - Name
-        - Max and min height
-        - Max and min weight
-        - Life span
-        - Select / Add temp
-        - Boton --> crear nueva raza
 
-*/ 
+
+

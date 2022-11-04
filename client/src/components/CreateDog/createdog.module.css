@@ -19,13 +19,24 @@
     text-align: center;
     font-weight: bold;
     font-size: 15px;
-    border: solid 1px ;
+    border: solid 2px black ;
+    color: white;
+    padding: 5px;
 }
 
-.form button {
+.buttonCreate{
     background-color: #3e0b068a;
     width: 105%;
     font-size: 15px ;
+    font-weight: bold;
+}
+
+.buttonTemp {
+    width: 40%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #3e0b068a;
+    color: white;
     font-weight: bold;
 }
 
@@ -87,4 +98,9 @@
     width: 50%;
     text-align: center;
     padding: 10px;
+}
+
+.spanTemp {
+    word-spacing: 30px;
+    margin: 5px;
 }
