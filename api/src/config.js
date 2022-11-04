@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+ 
  const DB_USER= process.env.DB_USER || process.env.DB_USER_LOCAL
  const DB_PASSWORD= process.env.DB_PASSWORD || process.env.DB_PASSWORD_LOCAL
  const DB_HOST= process.env.DB_HOST || process.env.DB_HOST_LOCAL
