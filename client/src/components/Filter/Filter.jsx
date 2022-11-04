@@ -15,7 +15,6 @@ const Filter = ({setFilter, setTempSearch, setPage}) => {
 
     useEffect(() => {
     dispatch(getAllTemperaments())
-    //dispatch(getAllTemperaments())
   }, [dispatch])
 
   function filterTemp(e) {

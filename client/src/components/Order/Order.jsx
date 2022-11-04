@@ -1,16 +1,8 @@
 import React from 'react'
-//import { orderByName } from '../../redux/actions/actions'
 import S from "./order.module.css"
 
 const Order = ({setOrder}) => {
 
-    /*
-    
-                    const dogs = state.allDogs
-                const orderDogs = action.payload === 'AZ' ?
-                    dogs.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0)) :
-                    dogs.sort((a, b) => (a.name > b.name ? -1 : a.name < b.name ? 1 : 0))
-    */
 
 function orderDogs(e) {
     e.preventDefault(e)

@@ -16,7 +16,6 @@ const Detail = () => {
         dispatch(getDogById(dogId))
     }, [dogId])
   
-   // let dogName = dog[0].name
 
     return (
     <div className={S.div}>
@@ -33,12 +32,7 @@ const Detail = () => {
             
 
             <img src={dog[0].image} alt="perrito" /> 
- 
-
-                
-
-            
-        </div> : 
+       </div> : 
         <div> 
             <h1>Espere, estamos buscando su perrito...</h1>
 

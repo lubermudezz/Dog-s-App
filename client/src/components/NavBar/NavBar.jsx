@@ -9,9 +9,9 @@ export default function Navbar () {
             <nav className={S.navbar}>
                 <ul>
                    
-                    <li><NavLink to={"/"}>Volver al inicio</NavLink></li> 
-                    <li><NavLink to={"/dogs"}>Home</NavLink></li>
-                    <li><NavLink to={"/dogs/create"}>Create New Dog</NavLink></li>
+                    <li><NavLink to={"/"}>Página de Bienvenida</NavLink></li> 
+                    <li><NavLink to={"/dogs"}>Perritos</NavLink></li>
+                    <li><NavLink to={"/dogs/create"}>Crear un perro nuevo</NavLink></li>
                 </ul>
             </nav>
         </>

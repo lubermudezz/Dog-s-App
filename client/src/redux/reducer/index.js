@@ -4,7 +4,6 @@ const initialState = {
     allDogs: [],
     temperaments: [],
     dog: {}
-    // dogscopy:[]
 }
 
 const reducer = (state = initialState, action) => {
