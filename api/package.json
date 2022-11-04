@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node -L",
-    "test": "mocha -w ./tests/**/*.spec.js"
+    "start": "node src/app.js"
   },
   "author": "Henry",
   "license": "ISC",
