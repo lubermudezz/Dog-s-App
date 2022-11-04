@@ -20,7 +20,6 @@ const getAllTemps = async (req, res) => {
     return res.send(allTemps)
 }
 
-// CONFIGURACIÓN DEL GET A /DOGS:
 
 const apiList = async () => {
     let infoApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)
@@ -83,6 +82,21 @@ const findDogById = async (req, res) => {
      
 }
 
+const deleteDog = async (req, res) => {
+    let {id} = req.params
+    try {
+        await Dog.destroy({where: {id}})
+        return res.send('Perrito eliminado')
+    } catch (err) {
+        console.log(err)
+    }
+        // let dogDos = await Dog.findAll({where: {id: dogId}})
+        
+  
+        // return res.status(404).send('No se pudo eliminar el perrito')
+    
+}
+
 const createNewDog = async (req, res) => {
     let { name, height, weight, life_span, createdInDb, temperaments } = req.body;
 
@@ -110,5 +124,6 @@ module.exports = {
     findDogById,
     setAllTemps,
     getAllTemps,
-    createNewDog
+    createNewDog, 
+    deleteDog
 }

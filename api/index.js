@@ -20,11 +20,14 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { setAllTemps } = require('./src/routes/controller.js');
+const {
+  PORT
+} = process.env;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001,  () => {
+  server.listen(PORT || 8007,  () => {
     setAllTemps()
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log(`%s listening at ${PORT || 8007}`); // eslint-disable-line no-console
   });
 });
