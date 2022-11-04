@@ -3,6 +3,7 @@
  const DB_HOST= process.env.DB_HOST || process.env.DB_HOST_LOCAL
  const DB_PORT= process.env.DB_PORT || process.env.DB_PORT_LOCAL
  const YOUR_API_KEY= process.env.YOUR_API_KEY || process.env.YOUR_API_KEY_LOCAL
+ const DB_NAME = process.env.DB_NAME ||  process.env.DB_NAME_LOCAL
 
  const PORT = process.env.PORT || 3001
 
@@ -13,5 +14,6 @@ module.exports = {
     DB_PORT,
     DB_USER,
     YOUR_API_KEY,
-    PORT
+    PORT,
+    DB_NAME
  }
