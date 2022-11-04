@@ -17,16 +17,16 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+require('dotenv').config();
 const server = require('./src/app.js');
-const { PORT } = require('./src/config.js');
 const { conn } = require('./src/db.js');
 const { setAllTemps } = require('./src/routes/controller.js');
 
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(PORT,  () => {
+  server.listen(process.env.PORT || process.env.PORT_LOCAL ,  () => {
     setAllTemps()
-    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
+    console.log(`%s listening at ${process.env.PORT || process.env.PORT_LOCAL}`); // eslint-disable-line no-console
   });
 });
