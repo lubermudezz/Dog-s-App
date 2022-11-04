@@ -4,7 +4,7 @@ const {Dog, Temperament} = require('../db')
 
 
 const setAllTemps = async () => {
-    const tempApi = await axios.get("https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}")
+    const tempApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)
     const arrTemps = tempApi.data.map(e => e.temperament);
     let arr = new Set()
     arrTemps.forEach(e => {if(e){e.split(",").map(e => arr.add(e.trim()))}});
