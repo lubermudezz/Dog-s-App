@@ -12,5 +12,5 @@ export const SEARCH_BY_TEMP = 'SEARCH_BY_TEMP'
 
 
 
-export const URL_DOG = 'http://localhost:3001/dogs'
-export const URL_TEMPERAMENT = 'http://localhost:3001/temperaments'
+export const URL_DOG = '/dogs'
+export const URL_TEMPERAMENT = '/temperaments'

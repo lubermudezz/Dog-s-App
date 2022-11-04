@@ -19,8 +19,8 @@ const Paginación = ({page, setPage, maxPage}) => {
   }
   
   const onKeyDown = (e) => {
-     let value = parseInt(e.target.value)
-      let valueN = Math.round(value)
+    let value = parseInt(e.target.value)
+    let valueN = Math.round(value)
       
    if(e.keyCode === 13) {
     if(valueN < 1 || isNaN(parseInt(valueN)) || valueN > maxPage) {
@@ -45,13 +45,13 @@ const Paginación = ({page, setPage, maxPage}) => {
        
         <div className={S.pageDiv}>
           <button onClick={previousPage} disabled={page === 1 || page < 1 } >ANTERIOR</button>
-          <input 
-          
-          name="page" 
-          autoComplete='off'
-          onChange={(e) => onChange(e)}
-          onKeyDown={(e) => onKeyDown(e)}
-          value={page} />
+            <input 
+            
+            name="page" 
+            autoComplete='off'
+            onChange={(e) => onChange(e)}
+            onKeyDown={(e) => onKeyDown(e)}
+            value={page} />
           <button onClick={nextPage} disabled={page === maxPage} >SIGUIENTE</button>
 
        </div>

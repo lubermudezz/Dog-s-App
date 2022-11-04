@@ -19,7 +19,7 @@ export function getAllDogs() {
 
 export function getDogById (dogId) {
     return async function (dispatch) {
-            const dog = await axios.get(`http://localhost:3001/dogs/${dogId}`)
+            const dog = await axios.get(`/dogs/${dogId}`)
             return dispatch({type: GET_DOG_BY_ID, payload: dog.data})
       
     }
@@ -38,7 +38,7 @@ export function postNewDog(dog) {
 export function getDogByName(name) {
     return async (dispatch) => {
        try { 
-            const dogByName = await axios.get(`http://localhost:3001/dogs?name=${name}`)
+            const dogByName = await axios.get(`/dogs?name=${name}`)
                     return dispatch({type: GET_DOG_BY_NAME, payload: dogByName.data})
         }
         catch (err) {

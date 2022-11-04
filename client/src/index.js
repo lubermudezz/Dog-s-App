@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {store} from './redux/store/index'
+import axios from 'axios'
+import { DEPLOY_URL, LOCAL_URL } from '../config';
+
+axios.defaults.baseURL =  DEPLOY_URL || LOCAL_URL  ;
+
 
 ReactDOM.render(
   <Provider store={store}>
