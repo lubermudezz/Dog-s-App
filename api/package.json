@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules"
+  ],
   "scripts": {
     "start": "nodemon index.js"
   },
